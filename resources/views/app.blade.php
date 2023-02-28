@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>{{ config('app.name', 'Friends-Team') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="AdminLTE/plugins/fontawesome-free/css/all.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="AdminLTE/dist/css/adminlte.min.css">
         <!-- Scripts -->
         @routes
         @viteReactRefresh
@@ -18,5 +18,12 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+    <!-- jQuery -->
+    <script src="AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="AdminLTE/dist/js/adminlte.min.js"></script>
     </body>
 </html>
