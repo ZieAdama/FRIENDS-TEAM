@@ -1,121 +1,97 @@
-import Navbare from '@/Navbare';
-import Sidebare from '@/Sidebare';
-import { Link, Head } from '@inertiajs/react';
+import { useEffect } from 'react';
+import Checkbox from '@/Components/Checkbox';
+import GuestLayout from '@/Layouts/GuestLayout';
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import PrimaryButton from '@/Components/PrimaryButton';
+import TextInput from '@/Components/TextInput';
+import { Head, Link, useForm } from '@inertiajs/react';
 
-export default function Welcome(props) {
+export default function Login({ status, canResetPassword }) {
+    const { data, setData, post, processing, errors, reset } = useForm({
+        email: '',
+        password: '',
+        remember: '',
+    });
+
+    useEffect(() => {
+        return () => {
+            reset('password');
+        };
+    }, []);
+
+    const handleOnChange = (event) => {
+        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+
+        post(route('login'));
+    };
+
     return (
-    <div className="wrapper">  
-        <Navbare />
+        <GuestLayout>
+            <Head title="Log in" />
 
-        <Sidebare />
+            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
+            <form onSubmit={submit}>
+                <div>
+                    <InputLabel htmlFor="email" value="Email" />
 
-  {/* <!-- Content Wrapper. Contains page content --> */}
-  <div className="content-wrapper">
-    {/* <!-- Content Header (Page header) --> */}
-    <div className="content-header">
-      <div className="container-fluid">
-        <div className="row mb-2">
-          <div className="col-sm-6">
-            <h1 className="m-0">WELCOME</h1>
-          </div>{/* <!-- /.col --> */}
-          <div className="col-sm-6">
-            <ol className="breadcrumb float-sm-right">
-              <li className="breadcrumb-item"><a href="#">Home</a></li>
-              <li className="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div>{/* <!-- /.col --> */}
-        </div>{/* <!-- /.row --> */}
-      </div>{/* <!-- /.container-fluid --> */}
-    </div>
-    {/* <!-- /.content-header --> */}
+                    <TextInput
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={data.email}
+                        className="mt-1 block w-full"
+                        autoComplete="username"
+                        isFocused={true}
+                        onChange={handleOnChange}
+                    />
 
-    {/* <!-- Main content --> */}
-    <div className="content">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                    <InputError message={errors.email} className="mt-2" />
+                </div>
 
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
+                <div className="mt-4">
+                    <InputLabel htmlFor="password" value="Password" />
 
-                <a href="#" className="card-link">Card link</a>
-                <a href="#" className="card-link">Another link</a>
-              </div>
-            </div>
+                    <TextInput
+                        id="password"
+                        type="password"
+                        name="password"
+                        value={data.password}
+                        className="mt-1 block w-full"
+                        autoComplete="current-password"
+                        onChange={handleOnChange}
+                    />
 
-            <div className="card card-primary card-outline">
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                    <InputError message={errors.password} className="mt-2" />
+                </div>
 
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" className="card-link">Card link</a>
-                <a href="#" className="card-link">Another link</a>
-              </div>
-             </div> {/*<!-- /.card --> */}
-          </div>
-          {/* <!-- /.col-md-6 --> */}
-          <div className="col-lg-6">
-            <div className="card">
-              <div className="card-header">
-                <h5 className="m-0">Featured</h5>
-              </div>
-              <div className="card-body">
-                <h6 className="card-title">Special title treatment</h6>
+                <div className="block mt-4">
+                    <label className="flex items-center">
+                        <Checkbox name="remember" value={data.remember} onChange={handleOnChange} />
+                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                    </label>
+                </div>
 
-                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
+                <div className="flex items-center justify-end mt-4">
+                    {canResetPassword && (
+                        <Link
+                            href={route('password.request')}
+                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            Forgot your password?
+                        </Link>
+                    )}
 
-            <div className="card card-primary card-outline">
-              <div className="card-header">
-                <h5 className="m-0">Featured</h5>
-              </div>
-              <div className="card-body">
-                <h6 className="card-title">Special title treatment</h6>
-
-                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          {/* <!-- /.col-md-6 --> */}
-        </div>
-        {/* <!-- /.row --> */}
-       </div>{/*<!-- /.container-fluid --> */}
-    </div>
-    {/* <!-- /.content --> */}
-  </div>
-  {/* <!-- /.content-wrapper --> */}
-
-  {/* <!-- Control Sidebar --> */}
-  <aside className="control-sidebar control-sidebar-dark">
-    {/* <!-- Control sidebar content goes here --> */}
-    <div className="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  {/* <!-- /.control-sidebar --> */}
-
-  {/* <!-- Main Footer --> */}
-  <footer className="main-footer">
-    {/* <!-- To the right --> */}
-    <div className="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    {/* <!-- Default to the left --> */}
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-</div>
+                    <PrimaryButton className="ml-4" disabled={processing}>
+                        CONNEXION
+                    </PrimaryButton>
+                </div>
+            </form>
+        </GuestLayout>
     );
 }
