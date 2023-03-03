@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecetteController;
 use Inertia\Inertia;
 
 /*
@@ -36,3 +37,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+ 
+Route::get('/insertrecette', [RecetteController::class, 'index']);

@@ -1,3 +1,5 @@
+import { Link } from '@inertiajs/react'
+
 
 export default function Handernave(params) {
     return(
@@ -10,7 +12,7 @@ export default function Handernave(params) {
                     <div className="col-sm-6">
                     <ol className="breadcrumb float-sm-right">
                         <td>
-                            <button type="button" style={{backgroundColor: "#81ccc5"}} className="btn btn-block btn-default btn-lg text-white">Prestations</button>
+                            <Link type="button" href="/insertrecette" as="button" style={{backgroundColor: "#81ccc5"}} className="btn btn-block btn-default btn-lg text-white">Prestations</Link>
                         </td>
                     </ol>
                     </div>

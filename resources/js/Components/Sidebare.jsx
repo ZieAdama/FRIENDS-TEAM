@@ -39,31 +39,17 @@ export default function Sidebare(props) {
     <nav className="mt-2">
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <Link href="/dashboard" className="nav-link">
             <i className="nav-icon fas fa-th"></i>
             <p>
-              Simple Link
-              <span className="right badge badge-danger">New</span>
-            </p>
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <Link href={route('logout')} method="post" className="nav-link">
-            <i className="nav-icon fas fa-th"></i>
-            <p>
-              Deconnexion
-              <span className="right badge badge-danger">New</span>
+              ACCUEIL
+              <span className="right badge badge-danger">A</span>
             </p>
           </Link>
         </li>
-
       </ul>
-     
     </nav>
-    {/* <!-- /.sidebar-menu --> */}
   </div>
-  {/* <!-- /.sidebar --> */}
 </aside>
     )
 }
