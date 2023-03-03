@@ -1,8 +1,7 @@
-import { Link } from '@inertiajs/react'
-import Navbare from '@/ZComponents/Navbare';
-import Sidebare from '@/ZComponents/Sidebare';
-import Footer from '@/ZComponents/Footer';
-import Tiroire from '@/ZComponents/Tiroire';
+import Navbare from '@/Components/Navbare';
+import Sidebare from '@/Components/Sidebare';
+import Footer from '@/Components/Footer';
+import Tiroire from '@/Components/Tiroire';
 
 export default function Layout({ children }) {
 

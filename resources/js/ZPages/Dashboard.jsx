@@ -1,6 +1,6 @@
-import Boxicone from '@/ZComponents/Boxicone';
-import Handernave from '@/ZComponents/Handernave';
-import Layout from '@/ZLayouts/Layout';
+import Boxicone from '@/Components/Boxicone';
+import Handernave from '@/Components/Handernave';
+import Layout from '@/Layouts/Layout';
 import { Link, Head } from '@inertiajs/react';
 
 export default function Welcome(props) {

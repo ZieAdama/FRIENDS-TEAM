@@ -9,8 +9,9 @@ export default function Handernave(params) {
                     </div>
                     <div className="col-sm-6">
                     <ol className="breadcrumb float-sm-right">
-                        <li className="breadcrumb-item"><a href="#">Some</a></li>
-                        <li className="breadcrumb-item active">Fing</li>
+                        <td>
+                            <button type="button" className="btn btn-block btn-primary">Primary</button>
+                        </td>
                     </ol>
                     </div>
                 </div>
