@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import Checkbox from '@/Components/Checkbox';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
+import Checkbox from '@/OLD/Components/Checkbox';
+import GuestLayout from '@/OLD/Layouts/GuestLayout';
+import InputError from '@/OLD/Components/InputError';
+import InputLabel from '@/OLD/Components/InputLabel';
+import PrimaryButton from '@/OLD/Components/PrimaryButton';
+import TextInput from '@/OLD/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
@@ -88,7 +88,7 @@ export default function Login({ status, canResetPassword }) {
                     )}
 
                     <PrimaryButton className="ml-4" disabled={processing}>
-                        Log in
+                        CONNEXION
                     </PrimaryButton>
                 </div>
             </form>
