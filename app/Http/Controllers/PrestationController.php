@@ -7,14 +7,14 @@ use Inertia\Inertia;
 use App\Http\Requests\StoreRecetteRequest;
 use App\Http\Requests\UpdateRecetteRequest;
 
-class RecetteController extends Controller
+class PrestationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('Insertrecetteform');
+        return Inertia::render('Showprestationlist');
     }
 
     /**
@@ -22,7 +22,7 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Insertprestationform');
     }
 
     /**

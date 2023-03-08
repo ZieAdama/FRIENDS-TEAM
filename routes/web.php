@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RecetteController;
+use App\Http\Controllers\PrestationController;
 use Inertia\Inertia;
 
 /*
@@ -40,4 +40,8 @@ require __DIR__.'/auth.php';
 
 
  
-Route::get('/insertrecette', [RecetteController::class, 'index']);
+Route::get('/showprestationlist', [PrestationController::class, 'index']);
+
+Route::get('/insertprestationform', [PrestationController::class, 'create']);
+
+Route::get('/storeprestationdata', [PrestationController::class, 'store']);
