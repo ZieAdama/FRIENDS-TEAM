@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('prestations', function (Blueprint $table) {
             $table->id();
+            $table->integer('photocopie')->nullable($value = 0);
+            $table->integer('wifi')->nullable($value = 0);
+            $table->integer('traitement_texte')->nullable($value = 0);
+            $table->integer('reliure')->nullable($value = 0);
+            $table->integer('impression')->nullable($value = 0);
+            $table->integer('autres_prestations')->nullable($value = 0);
             $table->timestamps();
         });
     }

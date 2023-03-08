@@ -44,4 +44,4 @@ Route::get('/showprestationlist', [PrestationController::class, 'index']);
 
 Route::get('/insertprestationform', [PrestationController::class, 'create']);
 
-Route::get('/storeprestationdata', [PrestationController::class, 'store']);
+Route::post('/storeprestationdata', [PrestationController::class, 'store']);

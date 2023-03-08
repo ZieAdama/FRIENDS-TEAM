@@ -30,7 +30,7 @@ class PrestationController extends Controller
      */
     public function store(StoreRecetteRequest $request)
     {
-        //
+        return Inertia::render('Showprestationlist');
     }
 
     /**

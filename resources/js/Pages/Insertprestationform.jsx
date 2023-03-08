@@ -29,6 +29,7 @@ export default function Insertprestationform(props) {
 
     return (
         <form onSubmit={handleSubmit}>
+            @csrf
             <section className="content">
                 <div className="row">
                     <div className="col-md-4">
